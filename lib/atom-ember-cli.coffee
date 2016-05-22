@@ -28,7 +28,11 @@ module.exports = AtomEmberCli =
     atomEmberCliViewState: @atomEmberCliView.serialize()
 
   isEmberProject: ->
-    atom.project.getPaths()[0] + "/.ember-cli"
+    fs.existsSync(atom.project.getPaths()[0] + "/.ember-cli")
+
+  activePanePath: ->
+    activePane = atom.workspace.getActivePaneItem()
+    activePane.getDirectoryPath() + "/" + activePane.getFileName()
 
   toggle: ->
-    console.log("Hurray") if isEmberProject
+    @activePanePath()
