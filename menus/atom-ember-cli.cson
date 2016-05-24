@@ -3,7 +3,7 @@
   'atom-text-editor': [
     {
       'label': 'Toggle atom-ember-cli'
-      'command': 'atom-ember-cli:toggle'
+      'command': 'atom-ember-cli:cycle'
     }
   ]
 'menu': [
@@ -13,8 +13,8 @@
       'label': 'atom-ember-cli'
       'submenu': [
         {
-          'label': 'Toggle'
-          'command': 'atom-ember-cli:toggle'
+          'label': 'Cycle'
+          'command': 'atom-ember-cli:cycle'
         }
       ]
     ]
