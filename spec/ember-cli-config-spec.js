@@ -23,28 +23,24 @@ describe("EmberCliConfig#isEmberProject", function() {
   })
 });
 
-describe("EmberCliConfig#config", function() {
-  it("returns a POJO of the config", function() {
+describe("EmberCliConfig#usesPodStructure", function() {
+  it("returns the pod structure config", function() {
     let emberCliConfig = new EmberCliConfig;
 
-    expect(emberCliConfig.config()).toEqual({ testing: true });
+    expect(emberCliConfig.usesPodStructure()).toEqual("Cats");
   });
 
   it("can handle json with comments", function() {
     let emberCliConfig = new EmberCliConfig;
 
     emberCliConfig.pathToConfig = atom.project.getPaths()[0] + "/.ember-cli-with-comments";
-    expect(emberCliConfig.config().testing).toBe(true);
+    expect(emberCliConfig.usesPodStructure()).toEqual("Dogs");
   })
+});
 
-  it("memoizes the config", function() {
-    let emberCliConfig = new EmberCliConfig
-    spyOn(fs, 'readFileSync').andCallFake(function() {
-      return true
-    });
-
-    emberCliConfig.config()
-    emberCliConfig.config()
-    expect(fs.readFileSync.calls.length).toEqual(1)
-  })
+describe("EmberCliConfig#podModulePrefix", function() {
+  it("returns the pod structure config", function() {
+    let emberCliConfig = new EmberCliConfig;
+    expect(emberCliConfig.podModulePrefix()).toEqual("ur-app/donkeys");
+  });
 });
