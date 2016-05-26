@@ -5,9 +5,6 @@
   "description": "A short description of your package",
   "keywords": [
   ],
-  "activationCommands": {
-    "atom-workspace": "atom-ember-cli:toggle"
-  },
   "repository": "https://github.com/atom/atom-ember-cli",
   "license": "MIT",
   "engines": {

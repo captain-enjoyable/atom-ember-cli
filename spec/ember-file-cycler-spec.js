@@ -17,9 +17,9 @@ describe("EmberFileCycler#cycle", function() {
 
     let emberFileCycler = new EmberFileCycler;
 
-    spyOn(emberFileCycler, "cyclePods");
+    spyOn(emberFileCycler, "_cyclePods");
     emberFileCycler.cycle();
-    expect(emberFileCycler.cyclePods.calls.length).toEqual(1)
+    expect(emberFileCycler._cyclePods.calls.length).toEqual(1)
   });
 
   it("calls cycle pods when the current file is component.js", function() {
@@ -36,9 +36,9 @@ describe("EmberFileCycler#cycle", function() {
 
     let emberFileCycler = new EmberFileCycler;
 
-    spyOn(emberFileCycler, "cyclePods");
+    spyOn(emberFileCycler, "_cyclePods");
     emberFileCycler.cycle();
-    expect(emberFileCycler.cyclePods.calls.length).toEqual(1)
+    expect(emberFileCycler._cyclePods.calls.length).toEqual(1)
   });
 
   it("calls cycle pods when the current file is controller.js", function() {
@@ -55,9 +55,9 @@ describe("EmberFileCycler#cycle", function() {
 
     let emberFileCycler = new EmberFileCycler;
 
-    spyOn(emberFileCycler, "cyclePods");
+    spyOn(emberFileCycler, "_cyclePods");
     emberFileCycler.cycle();
-    expect(emberFileCycler.cyclePods.calls.length).toEqual(1)
+    expect(emberFileCycler._cyclePods.calls.length).toEqual(1)
   });
 
   it("calls cycle pods when the current file is route.js", function() {
@@ -74,27 +74,27 @@ describe("EmberFileCycler#cycle", function() {
 
     let emberFileCycler = new EmberFileCycler;
 
-    spyOn(emberFileCycler, "cyclePods");
+    spyOn(emberFileCycler, "_cyclePods");
     emberFileCycler.cycle();
-    expect(emberFileCycler.cyclePods.calls.length).toEqual(1)
+    expect(emberFileCycler._cyclePods.calls.length).toEqual(1)
   });
 
-  it("with any other name is calls the regular cycle function", function() {
-    spyOn(atom.workspace, 'getActivePaneItem').andCallFake(function() {
-      return {
-        getFileName() {
-          return "anythingElse.js";
-        },
-        getDirectoryPath() {
-          return "/in/ur/folders";
-        }
-      }
-    });
-
-    let emberFileCycler = new EmberFileCycler;
-
-    spyOn(emberFileCycler, "cycleRegular");
-    emberFileCycler.cycle();
-    expect(emberFileCycler.cycleRegular.calls.length).toEqual(1)
-  });
+  // it("with any other name is calls the regular cycle function", function() {
+  //   spyOn(atom.workspace, 'getActivePaneItem').andCallFake(function() {
+  //     return {
+  //       getFileName() {
+  //         return "anythingElse.js";
+  //       },
+  //       getDirectoryPath() {
+  //         return "/in/ur/folders";
+  //       }
+  //     }
+  //   });
+  //
+  //   let emberFileCycler = new EmberFileCycler;
+  //
+  //   spyOn(emberFileCycler, "_cycleRegular");
+  //   emberFileCycler.cycle();
+  //   expect(emberFileCycler._cycleRegular.calls.length).toEqual(1)
+  // });
 });
