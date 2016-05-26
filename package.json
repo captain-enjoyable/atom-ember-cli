@@ -5,7 +5,7 @@
   "description": "A short description of your package",
   "keywords": [
   ],
-  "repository": "https://github.com/atom/atom-ember-cli",
+  "repository": "https://github.com/matteddy/atom-ember-cli",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
